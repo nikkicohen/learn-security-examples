@@ -1,2 +1,6 @@
 - Briefly explain the vulnerability and why the secure version prevents the vulnerability.
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+in insecure file, there's no try/catch block to gracefully handle errors when `.findOne` is called in line 26
+
+can also add middleware / rate limiter

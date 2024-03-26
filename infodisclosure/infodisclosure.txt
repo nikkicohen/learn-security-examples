@@ -1,3 +1,6 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
 Which CIA property does tampering violate?
 What additional security mechanisms can you incorporate?
+
+-- line 26 of insecure is where this becomes vulnerable. There's no check on what the user passes in. 
+We need to ensure that what the user passes in is string only without non-alphanumeric things: sanitization.

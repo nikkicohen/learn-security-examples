@@ -16,14 +16,14 @@ const userSchema = new mongoose.Schema({
 });
 
 // Create a Mongoose model based on the schema
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema); 
 
 // Route to authenticate user (VULNERABLE TO NOSQL INJECTION)
 app.get('/userinfo', async (req, res) => {
   const { username } = req.query;
 
   // Vulnerable code: Directly using user-provided values in the query
-  const user = await User.findOne({ username: username }).exec();
+  const user = await User.findOne({ username: username }).exec(); // does not account for the fact that user can input anything, not just a string. needs sanitization
 
   if (user) {
     res.send(`User: ${user}`);
